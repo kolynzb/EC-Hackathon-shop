@@ -1,0 +1,132 @@
+.Bannner {
+  /* height: 80vh; */
+  width: 100%;
+  position: relative;
+}
+.bannerImage {
+  object-fit: contain;
+  height: 80vh;
+}
+.image {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  height: 80vh;
+  overflow: hidden;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  /* background: rgba(0, 0, 0, 0.431); */
+}
+.title {
+  color: #fff;
+  text-align: center;
+  padding-left: 70px;
+  font-size: 40px;
+}
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 122px;
+  margin-bottom: 120px;
+}
+.cards {
+  display: flex;
+}
+.card {
+  border-radius: 20px;
+  height: 200px;
+  width: 180px;
+  background: rgba(255, 255, 255, 0.322);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 30px;
+}
+.icon > svg {
+  color: white;
+  font-size: 35px;
+}
+.info > p {
+  color: white;
+  padding-left: 10px;
+}
+.contactSection > h1 {
+  font-size: 40px;
+  font-weight: 500;
+}
+.contactSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.pgcontent {
+  width: 60%;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.space {
+  width: 100%;
+  height: 15px;
+}
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 400px;
+}
+.textarea {
+  border: 2px solid #8d8d8d9d;
+  border-radius: 5px;
+}
+.mapnative > iframe {
+  border: none;
+}
+.mapSection {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (max-width: 640px) {
+  .cards {
+    flex-direction: column;
+    margin-top: 70px;
+  }
+  .card {
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .pgcontent {
+    flex-direction: column;
+  }
+  .contactForm {
+    margin-bottom: 20px;
+  }
+  .card {
+    height: 150px;
+    width: 150px;
+    background-color: rgba(0, 0, 0, 0.644);
+  }
+  .icon > svg {
+    font-size: 25px;
+  }
+  .info > p {
+    font-size: 12px;
+    padding-left: 0;
+  }
+  .overlay {
+    display: none;
+  }
+}
+@media screen and (max-width: 1024px) {
+}

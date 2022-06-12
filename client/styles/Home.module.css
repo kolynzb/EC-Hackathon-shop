@@ -1,0 +1,101 @@
+.main {
+  flex: 1;
+}
+
+.code {
+  background: #fafafa;
+  border-radius: 5px;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
+}
+.sectionTitle,
+.subtitle {
+  text-align: center;
+}
+.sectionTitle {
+  font-size: 40px;
+}
+.cards {
+  display: flex;
+  justify-content: center;
+}
+.card {
+  position: relative;
+  width: 300px;
+  height: 500px;
+  margin-right: 40px;
+  overflow: hidden;
+  transition: 0.2s ease-in-out all;
+}
+.card:hover .overlay {
+  visibility: hidden;
+}
+.card:hover {
+  border-radius: 10px;
+  transform: scale(1.1);
+}
+.overlay {
+  position: absolute;
+  visibility: visible;
+  top: 0;
+  background: rgba(0, 0, 0, 0.527);
+  height: 94%;
+  width: 100%;
+  transition: all 0.5 ease-in-out;
+}
+.inpagebanner {
+  position: relative;
+  height: 500px;
+  overflow-y: scroll;
+  margin-top: 50px;
+}
+.inpagebanner::-webkit-scrollbar {
+  display: none;
+}
+.Logo {
+  position: absolute;
+  top: 50px;
+  left: 550px;
+}
+.productSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+  margin: auto;
+  padding-bottom: 60px;
+}
+.sectionTitle {
+  font-weight: 400;
+  margin: 0;
+  padding-top: 70px;
+}
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+/* media queries */
+@media screen and (max-width: 640px) {
+  .overlay {
+    height: 90%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .overlay {
+    height: 80%;
+    display: none;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .overlay {
+    height: 87%;
+  }
+}

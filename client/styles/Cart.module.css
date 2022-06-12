@@ -1,0 +1,74 @@
+.cart {
+  margin-top: 100px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.cartleft {
+  flex: 3;
+}
+.cartRight {
+  flex: 1;
+}
+.pgTitle {
+  color: #2d2d2d;
+  font-size: 40px;
+}
+.content {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+.cndtShopping {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}
+.cndtShopping > p {
+  font-weight: 500;
+  font-size: 20px;
+}
+.cndtShopping {
+  cursor: pointer;
+}
+.sect {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.info {
+  font-size: 13px;
+  color: #737373;
+  font-weight: 300;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(0, 0, 0, 0.589);
+  padding: 0 20px 30px 20px;
+  width: 325px;
+}
+.sectionTitle {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 17px;
+}
+.totalTitle {
+  color: #2d2d2d;
+  font-size: 20px;
+}
+.cartItemsSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
