@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { IconType } from "react-icons";
 import { AiFillShop } from "react-icons/ai";
 import {
   FiDollarSign,
@@ -9,13 +8,14 @@ import {
   FiHome,
 } from "react-icons/fi";
 import { IoIosStats } from "react-icons/io";
+
 const SideBar = () => {
   const [showlarge, setShowLarge] = useState<Boolean>(false);
 
   return (
     <div
       className={
-        "h-screen  bg-gray-900  fixed top-0 left-0 flex flex-col items-center justify-center " +
+        "h-screen  bg-gray-900  fixed top-0 left-0 flex flex-col items-center justify-center shadow-lg" +
         `${showlarge ? " w-2" : " w-14"}`
       }
     >
@@ -38,7 +38,9 @@ type _SideBarIconProps = {
 const _SideBarIcon = ({ icon, tooltip }: _SideBarIconProps) => (
   <div className="sidebar-icon group">
     {icon}
-    <span className="sidebar-tooltip group-hover:scale-100">{tooltip}</span>
+    <span className="sidebar-tooltip group-hover:scale-100 shadow-sm">
+      {tooltip}
+    </span>
   </div>
 );
 export default SideBar;
