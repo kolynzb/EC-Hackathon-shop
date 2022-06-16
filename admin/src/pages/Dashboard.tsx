@@ -8,7 +8,7 @@ const Dashboard = () => {
   return (
     <form>
       <SideBar />
-      <div className="mb-4 w-full bg-gray-50 rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600">
+      {/* <div className="mb-4 w-full bg-gray-50 rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600">
         <div className="flex justify-between items-center py-2 px-3 border-b dark:border-gray-600">
           <div className="flex flex-wrap items-center divide-gray-200 sm:divide-x dark:divide-gray-600">
             <div className="flex items-center space-x-1 sm:pr-4">
@@ -231,7 +231,7 @@ const Dashboard = () => {
         className="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
       >
         Publish post
-      </button>
+      </button> */}
     </form>
   );
 };
