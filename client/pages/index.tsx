@@ -2,15 +2,17 @@ import Head from "next/head";
 import Image from "next/image";
 import Banner from "../components/Banner";
 import styles from "../styles/Home.module.css";
-import delivery from "../public/Images/delivery.png";
-import imageOne from "../public/Images/1.JPG";
-import imageTwo from "../public/Images/2.JPG";
-import imageThree from "../public/Images/3.JPG";
-import pageBanner from "../public/Images/inpagebanner.JPG";
-import logo from "../public/Images/logo.png";
+import delivery from "../assets/Images/delivery.png";
+import imageOne from "../assets/Images/1.JPG";
+import imageTwo from "../assets/Images/2.JPG";
+import imageThree from "../assets/Images/3.JPG";
+import pageBanner from "../assets/Images/inpagebanner.JPG";
+import logo from "../assets/Images/logo.png";
 import data from "../dummydata/data";
 import ProductCard from "../components/ProductCard";
-export default function Home() {
+import { NextPage } from "next";
+
+const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <Head>
@@ -21,18 +23,18 @@ export default function Home() {
 
       <main className={styles.main}>
         <Banner />
-        <NativeClothingSection />
+        <_NativeClothingSection />
         <h1 className={styles.sectionTitle}>Our top picks for you</h1>
-        <ProductSectionOne />
-        <InPageBanner />
-        <ProductSectionTwo />
+        <_ProductSectionOne />
+        <_InPageBanner />
+        <_ProductSectionTwo />
         <Image src={delivery} alt="delivery" />
       </main>
     </div>
   );
-}
+};
 
-const ProductSectionOne = () => (
+const _ProductSectionOne = () => (
   <div className={styles.productSection}>
     {data.slice(11, 15).map((product) => (
       <ProductCard
@@ -45,7 +47,7 @@ const ProductSectionOne = () => (
     ))}
   </div>
 );
-const ProductSectionTwo = () => (
+const _ProductSectionTwo = () => (
   <div className={styles.productSection}>
     {data.slice(16, 20).map((product) => (
       <ProductCard
@@ -58,7 +60,7 @@ const ProductSectionTwo = () => (
     ))}
   </div>
 );
-const NativeClothingSection = () => (
+const _NativeClothingSection = () => (
   <section className={styles.nativeClothingSection}>
     <h1 className={styles.sectionTitle}>Native Clothing</h1>
     <p className={styles.subtitle}>
@@ -81,7 +83,7 @@ const NativeClothingSection = () => (
     </div>
   </section>
 );
-const InPageBanner = () => (
+const _InPageBanner = () => (
   <div className={styles.inpagebanner}>
     <Image src={pageBanner} alt="pagebanner" />
     <div className={styles.Logo}>
@@ -89,3 +91,5 @@ const InPageBanner = () => (
     </div>
   </div>
 );
+
+export default Home;

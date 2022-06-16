@@ -4,7 +4,8 @@ import styles from "../styles/Cart.module.css";
 import Link from "next/link";
 
 import { useSelector } from "react-redux";
-const Cart = () => {
+import { NextPage } from "next";
+const Cart: NextPage = () => {
   const cartItems = useSelector((state) => state.cart.cart);
   return (
     <div className={styles.cart}>

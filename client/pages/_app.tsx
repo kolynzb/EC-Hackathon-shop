@@ -1,8 +1,10 @@
-import Layout from "../components/Layout";
 import "../styles/globals.css";
-import { store } from "../store/store";
+import type { AppProps } from "next/app";
 import { Provider } from "react-redux";
-function MyApp({ Component, pageProps }) {
+import { store } from "../store/store";
+import Layout from "../components/Layout";
+
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
       <Layout>

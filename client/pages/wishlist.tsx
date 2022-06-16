@@ -1,6 +1,7 @@
+import { NextPage } from "next";
 import Socialsbar from "../components/Socialsbar";
 
-const wishlist = () => {
+const wishlist: NextPage = () => {
   return (
     <div className="container">
       <h1 className="pgtitle">Wishlist</h1>

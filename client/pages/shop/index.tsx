@@ -1,12 +1,13 @@
+import { NextPage } from "next";
 import React, { useState } from "react";
 import ProductCard from "../../components/ProductCard";
 import Products from "../../components/Products";
 import styles from "../../styles/Shop.module.css";
-const shop = () => {
+const shop: NextPage = () => {
   return (
     <div className={styles.shopPage}>
       <aside className={styles.left}>
-        <Sidebar />
+        <_Sidebar />
       </aside>
       <Right />
     </div>
@@ -14,7 +15,7 @@ const shop = () => {
 };
 
 export default shop;
-const Sidebar = () => (
+const _Sidebar = () => (
   <div className={styles.Sidebar}>
     <ByCategory />
     <ByColor />

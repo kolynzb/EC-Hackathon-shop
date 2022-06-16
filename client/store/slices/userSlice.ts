@@ -1,7 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  user: {},
+interface User {
+  name: string;
+}
+
+interface UserState {
+  user: User | null;
+  loading: boolean;
+  error: boolean;
+}
+
+const initialState: UserState = {
+  user: null,
+  loading: false,
+  error: false,
 };
 
 export const userSlice = createSlice({

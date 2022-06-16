@@ -8,8 +8,9 @@ import data from "../../dummydata/data";
 import Image from "next/image";
 import { addToCart } from "../../store/slices/cartSlice";
 import { useDispatch } from "react-redux";
+import { NextPage } from "next";
 
-const Product = () => {
+const Product: NextPage = () => {
   const router = useRouter();
   const { id } = router.query;
   const productItem = data.filter((product) => product.id == id)[0];

@@ -3,18 +3,20 @@ import { useDispatch, useSelector } from "react-redux";
 import CommonBtn from "../components/CommonBtn";
 import styles from "../styles/Login.module.css";
 import { llogin } from "../store/slices/userSlice";
-const login = () => {
+import { NextPage } from "next";
+
+const login: NextPage = () => {
   return (
     <div className={styles.loginPg}>
-      <LoginSect />
-      <Register />
+      <_LoginSect />
+      <_Register />
     </div>
   );
 };
 
 export default login;
 
-const LoginSect = () => {
+const _LoginSect = () => {
   const [userr, setUserr] = useState({});
   const dispatch = useDispatch();
   const handleLogin = (e) => {
@@ -57,7 +59,7 @@ const LoginSect = () => {
     </form>
   );
 };
-const Register = () => (
+const _Register = () => (
   <form className={styles.register}>
     <h1 className={styles.sectionTitle}>Register</h1>
     <Inputt type="email">Email Address*</Inputt>

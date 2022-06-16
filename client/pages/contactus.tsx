@@ -3,7 +3,8 @@ import Image from "next/image";
 import hero from "../public/Images/contactus.jpg";
 import CommonBtn from "../components/CommonBtn";
 import Socialsbar from "../components/Socialsbar";
-const contactus = () => {
+import { NextPage } from "next";
+const contactus: NextPage  = () => {
   return (
     <div>
       <ContactUsBanner />

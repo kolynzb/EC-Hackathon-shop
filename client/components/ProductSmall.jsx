@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
-import productsmall from "../public/Images/productsmall.JPG";
+import productsmall from "../assets/Images/productsmall.JPG";
 import { removeFromCart } from "../store/slices/cartSlice";
 const ProductSmall = ({ small, name, price, id, img }) => {
   const dispatch = useDispatch();

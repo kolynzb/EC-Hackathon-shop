@@ -1,6 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import data from "../../dummydata/data";
-const initialState = {
+import { Product } from "../../interfaces/Product.interface";
+
+type Wishlist = Array<Product>;
+interface WishlistState {
+  wishlist: Wishlist[];
+}
+const initialState: WishlistState = {
   wishlist: [],
 };
 
