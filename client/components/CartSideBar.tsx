@@ -6,7 +6,7 @@ import ProductSmall from "./ProductSmall";
 import { useAppSelector } from "../hooks/reduxHooks";
 
 type CartSideBarProps = {
-  setShow: () => {};
+  setShow: React.Dispatch<React.SetStateAction<boolean>>;
 };
 const CartSideBar = ({ setShow }: CartSideBarProps) => {
   const items = useAppSelector((state) => state.cart.cart);
@@ -22,7 +22,7 @@ const CartSideBar = ({ setShow }: CartSideBarProps) => {
           </div>
         </header>
         <div className={styles.main}>
-          {!(items.length === 0) ? (
+          {!(items!.length === 0) ? (
             <InhabitedCart cartItems={cartItems} />
           ) : (
             <EmptyCart />

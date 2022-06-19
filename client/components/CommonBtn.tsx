@@ -3,6 +3,7 @@ type CommonBtnProps = {
   long: Number;
   txtColor: String;
   backgroundColor: String;
+  // TODO: fix child
   children: Number;
   borderColor: String;
   hovertxtColor: String;
