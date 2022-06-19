@@ -1,4 +1,4 @@
-import { useState, useEffect, SetStateAction } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import CartSideBar from "./CartSideBar";
 import styles from "../styles/components/Nav.module.css";
@@ -7,8 +7,8 @@ import { logOut } from "../store/slices/userSlice";
 import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
 
 type NavbarProps = {
-  showCartSide: React.Dispatch<SetStateAction<Boolean>>;
-  showSearchBar: React.Dispatch<SetStateAction<Boolean>>;
+  showCartSide: React.Dispatch<React.SetStateAction<boolean>>;
+  showSearchBar: React.Dispatch<React.SetStateAction<boolean>>;
 };
 const Navbar = (props: NavbarProps) => {
   const dispatch = useAppDispatch();
