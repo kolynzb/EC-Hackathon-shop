@@ -5,22 +5,30 @@ import CommonBtn from "../components/CommonBtn";
 import Socialsbar from "../components/Socialsbar";
 import { NextPage } from "next";
 import { HTMLInputTypeAttribute } from "react";
+import Head from "next/head";
 const contactus: NextPage = () => {
   return (
-    <div>
-      <ContactUsBanner />
-      <div className={styles.contactSection}>
-        <h1>Get In Touch</h1>
-        <div className={styles.pgcontent}>
-          <ContactForm />
-          <div className={styles.mapSection}>
-            <MapNative />
+    <>
+      <Head>
+        <title>Contact Us Native Kampala</title>
+        <meta name="description" content="Contact Native" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div>
+        <ContactUsBanner />
+        <div className={styles.contactSection}>
+          <h1>Get In Touch</h1>
+          <div className={styles.pgcontent}>
+            <ContactForm />
+            <div className={styles.mapSection}>
+              <MapNative />
 
-            <Socialsbar />
+              <Socialsbar />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

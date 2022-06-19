@@ -6,26 +6,34 @@ import Link from "next/link";
 import { NextPage } from "next";
 import { useAppSelector } from "../hooks/reduxHooks";
 import { Product } from "../interfaces/Product.interface";
+import Head from "next/head";
 const Cart: NextPage = () => {
   const cartItems = useAppSelector((state) => state.cart.cart);
   return (
-    <div className={styles.cart}>
-      <h1 className={styles.pgTitle}>Cart</h1>
+    <>
+      <Head>
+        <title>Shopping Cart Native Kampala</title>
+        <meta name="description" content="Your Native  Cart" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className={styles.cart}>
+        <h1 className={styles.pgTitle}>Cart</h1>
 
-      {/* {cartItems!.length === 0 ? ( */}
-      {cartItems ? (
-        <EmptyCart />
-      ) : (
-        <div className={styles.content}>
-          <div className={styles.cartleft}>
-            <CartItems />
+        {/* {cartItems!.length === 0 ? ( */}
+        {cartItems ? (
+          <EmptyCart />
+        ) : (
+          <div className={styles.content}>
+            <div className={styles.cartleft}>
+              <CartItems />
+            </div>
+            <div className={styles.cartRight}>
+              <CartTotalCard />
+            </div>
           </div>
-          <div className={styles.cartRight}>
-            <CartTotalCard />
-          </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </>
   );
 };
 

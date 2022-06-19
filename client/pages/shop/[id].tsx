@@ -9,67 +9,80 @@ import Image from "next/image";
 import { addToCart } from "../../store/slices/cartSlice";
 import { useDispatch } from "react-redux";
 import { NextPage } from "next";
+import Head from "next/head";
+import { Product } from "../../interfaces/Product.interface";
 
 const Product: NextPage = () => {
   const router = useRouter();
   const { id } = router.query;
-  const productItem = data.filter((product) => product.id == id)[0];
+  const productItem = data.filter(
+    (product) => (product.id as unknown as string) == id
+  )[0];
 
   return (
-    <div className={styles.ProductPg}>
-      <div className={styles.top}>
-        {productItem && (
-          <>
-            <Left product={productItem} />
-            <Right product={productItem} />
-          </>
-        )}
-      </div>
-      <div className={styles.description}>
-        <h1 className={styles.descTitle}>Description</h1>
-        <div className={styles.descBody}>
-          Brand Name: Native Sport-lux bra and pant <br />
-          Underwear Color: White
-          <br />
-          Item Type: Underwear
-          <br />
-          Gender: Female
-          <br />
-          Package include: 1X bra and 1X underwear
-          <br />
-          100% new brand, nice quality.
-          <br />
-          Made of stretchable cotton
-          <br />
-          Super-soft elastic band for comfort and movement.
-          <br />
-          Suitable for spinning, yoga, pilates or Weight training, exercise,
-          fitness, everyday use.
-          <br />
-          Machine wash and turbo dry.
+    <>
+      <Head>
+        <title>{productItem.name} Native Kampala</title>
+        <meta name="description" content="Contact Native" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className={styles.ProductPg}>
+        <div className={styles.top}>
+          {productItem && (
+            <>
+              <Left product={productItem} />
+              <Right product={productItem} />
+            </>
+          )}
         </div>
-        <div className={styles.relatedProducts}>
-          <h1 className={styles.relatedTitle}>Related products</h1>
-          <div className={styles.products}>
-            {data.slice(19, 22).map((product) => (
-              <ProductCard
-                img={product.img}
-                name={product.name}
-                price={product.price}
-                key={product.id}
-                id={product.id}
-              />
-            ))}
+        <div className={styles.description}>
+          <h1 className={styles.descTitle}>Description</h1>
+          <div className={styles.descBody}>
+            Brand Name: Native Sport-lux bra and pant <br />
+            Underwear Color: White
+            <br />
+            Item Type: Underwear
+            <br />
+            Gender: Female
+            <br />
+            Package include: 1X bra and 1X underwear
+            <br />
+            100% new brand, nice quality.
+            <br />
+            Made of stretchable cotton
+            <br />
+            Super-soft elastic band for comfort and movement.
+            <br />
+            Suitable for spinning, yoga, pilates or Weight training, exercise,
+            fitness, everyday use.
+            <br />
+            Machine wash and turbo dry.
+          </div>
+          <div className={styles.relatedProducts}>
+            <h1 className={styles.relatedTitle}>Related products</h1>
+            <div className={styles.products}>
+              {data.slice(19, 22).map((product) => (
+                <ProductCard
+                  img={product.img}
+                  name={product.name}
+                  price={product.price}
+                  key={product.id}
+                  id={product.id}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
 export default Product;
-
-const Left = ({ product }) => {
+type LeftProp = {
+  product: Product;
+};
+const Left = ({ product }: LeftProp) => {
   const [productCount, setProductCount] = useState(0);
   const sizes = product?.sizes;
   const colors = product?.colors;
@@ -100,9 +113,9 @@ const Left = ({ product }) => {
           <CommonBtn
             backgroundColor="black"
             txtColor="white"
-            fontSize="14"
-            wide="9"
-            long="15"
+            fontSize={14}
+            wide={9}
+            long={15}
           >
             Add to Cart
           </CommonBtn>
@@ -130,7 +143,8 @@ const Left = ({ product }) => {
     </div>
   );
 };
-const ColorCircle = (props) => (
+
+const ColorCircle = (props: { color: string }) => (
   <div className="colorCircle">
     <style jsx>{`
       .colorCircle {
@@ -149,7 +163,7 @@ const ColorCircle = (props) => (
     `}</style>
   </div>
 );
-const SizeBtn = (props) => (
+const SizeBtn = (props: { children: any }) => (
   <button className="button">
     {props.children}
     <style jsx>{`
@@ -172,7 +186,11 @@ const SizeBtn = (props) => (
     `}</style>
   </button>
 );
-const AddProductsbtns = ({ count, setCount }) => {
+type AddProductsbtnsProps = {
+  count: number;
+  setCount: React.Dispatch<React.SetStateAction<number>>;
+};
+const AddProductsbtns = ({ count, setCount }: AddProductsbtnsProps) => {
   return (
     <div className="productNumber">
       <div className="add" onClick={() => setCount((count += 1))}>
@@ -180,10 +198,10 @@ const AddProductsbtns = ({ count, setCount }) => {
           stroke="currentColor"
           fill="currentColor"
           strokeWidth="0"
-          t="1551322312294"
+          // t="1551322312294"
           viewBox="0 0 1024 1024"
           version="1.1"
-          pId="10297"
+          // pId="10297"
           height="1em"
           width="1em"
           xmlns="http://www.w3.org/2000/svg"
@@ -191,11 +209,11 @@ const AddProductsbtns = ({ count, setCount }) => {
           <defs></defs>
           <path
             d="M474 152m8 0l60 0q8 0 8 8l0 704q0 8-8 8l-60 0q-8 0-8-8l0-704q0-8 8-8Z"
-            pId="10298"
+            // pId="10298"
           ></path>
           <path
             d="M168 474m8 0l672 0q8 0 8 8l0 60q0 8-8 8l-672 0q-8 0-8-8l0-60q0-8 8-8Z"
-            pId="10299"
+            // pId="10299"
           ></path>
         </svg>
       </div>
@@ -246,7 +264,7 @@ const AddProductsbtns = ({ count, setCount }) => {
     </div>
   );
 };
-const Right = ({ product }) => (
+const Right = ({ product }: { product: Product }) => (
   <div className={styles.right}>
     <Image src={product?.img} alt={product?.name} width={300} height={450} />
   </div>

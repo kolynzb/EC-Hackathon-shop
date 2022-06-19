@@ -4,13 +4,21 @@ import CommonBtn from "../components/CommonBtn";
 import styles from "../styles/Login.module.css";
 import { llogin } from "../store/slices/userSlice";
 import { NextPage } from "next";
+import Head from "next/head";
 
 const login: NextPage = () => {
   return (
-    <div className={styles.loginPg}>
-      <_LoginSect />
-      <_Register />
-    </div>
+    <>
+      <Head>
+        <title>Login Or Register Native Kampala</title>
+        <meta name="description" content="Contact Native" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className={styles.loginPg}>
+        <_LoginSect />
+        <_Register />
+      </div>
+    </>
   );
 };
 

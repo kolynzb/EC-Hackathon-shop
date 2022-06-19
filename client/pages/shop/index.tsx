@@ -1,16 +1,24 @@
 import { NextPage } from "next";
+import Head from "next/head";
 import React, { useState } from "react";
 import ProductCard from "../../components/ProductCard";
 import Products from "../../components/Products";
 import styles from "../../styles/Shop.module.css";
 const shop: NextPage = () => {
   return (
-    <div className={styles.shopPage}>
-      <aside className={styles.left}>
-        <_Sidebar />
-      </aside>
-      <Right />
-    </div>
+    <>
+      <Head>
+        <title>Shop Native Kampala</title>
+        <meta name="description" content="Contact Native" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className={styles.shopPage}>
+        <aside className={styles.left}>
+          <_Sidebar />
+        </aside>
+        <Right />
+      </div>
+    </>
   );
 };
 
