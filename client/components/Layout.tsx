@@ -10,7 +10,12 @@ const handleScroll = () => {
     behavior: "smooth",
   });
 };
-const Layout = (props) => {
+
+type LayoutProps = {
+  // TODO: fix xhild type
+  children: any;
+};
+const Layout = (props: LayoutProps) => {
   const router = useRouter();
   const [showCartSide, setShowCartSide] = useState(false);
   const [showSearchBar, setShowSearchBar] = useState(false);
@@ -32,7 +37,7 @@ const Layout = (props) => {
 
 export default Layout;
 
-const ScrollTopBtn = (props) => {
+const ScrollTopBtn = () => {
   const [showBtn, setShowBtn] = useState(false);
   const pageScrolled = () => {
     window.scrollY > 150 ? setShowBtn(true) : setShowBtn(false);
