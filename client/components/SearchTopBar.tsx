@@ -1,6 +1,10 @@
 import styles from "../styles/components/SearchTopBar.module.css";
 import CloseButton from "./CloseButton";
-const SearchTopBar = (props) => {
+
+type SearchTopBarProps = {
+  setShow: React.Dispatch<React.SetStateAction<boolean>>;
+};
+const SearchTopBar = (props: SearchTopBarProps) => {
   return (
     <div className={styles.searchTopBar}>
       <div className={styles.container}>

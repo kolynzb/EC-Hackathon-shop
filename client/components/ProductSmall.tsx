@@ -2,14 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
 import productsmall from "../assets/Images/productsmall.JPG";
+import { Product } from "../interfaces/Product.interface";
 import { removeFromCart } from "../store/slices/cartSlice";
 
 type ProductSmallProps = {
   small: string;
-  name: string;
-  price: string;
-  id: string;
-  img: string;
+  img: Product["img"];
+  name: Product["name"];
+  price: Product["price"];
+  id: Product["id"];
 };
 const ProductSmall = ({ small, name, price, id, img }: ProductSmallProps) => {
   const dispatch = useDispatch();
