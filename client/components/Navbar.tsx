@@ -1,23 +1,31 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, SetStateAction } from "react";
 import Link from "next/link";
 import CartSideBar from "./CartSideBar";
 import styles from "../styles/components/Nav.module.css";
 import { useRouter } from "next/router";
-import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../store/slices/userSlice";
-const Navbar = (props) => {
-  const dispatch = useDispatch();
-  const cartItem = useSelector((state) => state.cart.cart);
+import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
+
+type NavbarProps = {
+  showCartSide: React.Dispatch<SetStateAction<Boolean>>;
+  showSearchBar: React.Dispatch<SetStateAction<Boolean>>;
+};
+const Navbar = (props: NavbarProps) => {
+  const dispatch = useAppDispatch();
+  const cartItem = useAppSelector((state) => state.cart.cart);
   const router = useRouter();
-  const user = useSelector((state) => state.user.user);
+  const user = useAppSelector((state) => state.user.user);
   const [showNav, setShowNav] = useState(false);
   const [showCart, setShowCart] = useState(false);
+
   const pageScrolled = () => {
     window.scrollY > 100 ? setShowNav(true) : setShowNav(false);
   };
+
   useEffect(() => {
     window.addEventListener("scroll", pageScrolled);
   }, []);
+
   return (
     <nav
       className={
@@ -93,8 +101,8 @@ const Navbar = (props) => {
           </svg>
         </div>
         <div className={styles.ham} onClick={() => props.showCartSide(true)}>
-          {cartItem.length > 0 && (
-            <div className={styles.badge}>{cartItem.length} </div>
+          {cartItem!.length > 0 && (
+            <div className={styles.badge}>{cartItem!.length} </div>
           )}
           <svg
             stroke="currentColor"
