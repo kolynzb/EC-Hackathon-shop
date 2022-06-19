@@ -6,7 +6,7 @@ import { Product } from "../interfaces/Product.interface";
 import { removeFromCart } from "../store/slices/cartSlice";
 
 type ProductSmallProps = {
-  small: string;
+  small?: string;
   img: Product["img"];
   name: Product["name"];
   price: Product["price"];

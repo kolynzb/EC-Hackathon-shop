@@ -3,15 +3,17 @@ import ProductSmall from "../components/ProductSmall";
 import styles from "../styles/Cart.module.css";
 import Link from "next/link";
 
-import { useSelector } from "react-redux";
 import { NextPage } from "next";
+import { useAppSelector } from "../hooks/reduxHooks";
+import { Product } from "../interfaces/Product.interface";
 const Cart: NextPage = () => {
-  const cartItems = useSelector((state) => state.cart.cart);
+  const cartItems = useAppSelector((state) => state.cart.cart);
   return (
     <div className={styles.cart}>
       <h1 className={styles.pgTitle}>Cart</h1>
 
-      {cartItems.length === 0 ? (
+      {/* {cartItems!.length === 0 ? ( */}
+      {cartItems ? (
         <EmptyCart />
       ) : (
         <div className={styles.content}>
@@ -73,7 +75,7 @@ const CartTotalCard = () => (
       txtColor="white"
       backgroundColor="black"
       hoverBackgroundColor="white"
-      fontSize="17"
+      fontSize={17}
     >
       Proceed to Checkout
     </CommonBtn>
@@ -102,7 +104,7 @@ const CartTotalCard = () => (
   </div>
 );
 const CartItems = () => {
-  const cartItems = useSelector((state) => state.cart.cart);
+  const cartItems = useAppSelector((state) => state.cart.cart);
 
   return (
     <div className={styles.cartItems}>
@@ -126,16 +128,25 @@ const CartItems = () => {
       </Link>
       <div className="line"></div>
       <div className={styles.cartItemsSection}>
-        {cartItems.map((itemm) =>
-          itemm.map((item) => (
+        {/* {cartItems!.map((itemm) =>
+          itemm!.map((item: Product) => (
             <ProductSmall
               name={item.name}
               price={item.price}
               key={item.id}
-              img={item?.img}
-            />
+              id={item.id}
+              img={item?.img}            />
           ))
-        )}
+        )} */}
+        {cartItems!.map((item: Product) => (
+          <ProductSmall
+            name={item.name}
+            price={item.price}
+            key={item.id}
+            id={item.id}
+            img={item?.img}
+          />
+        ))}
       </div>
       <style jsx>{`
         .line {
