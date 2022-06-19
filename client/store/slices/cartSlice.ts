@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import data from "../../dummydata/data";
-import { Product } from "../../interfaces/Product.interface";
-
-type Cart = Array<Product>;
+import { Cart } from "../../types";
 
 interface CartState {
   cart: Cart | null;

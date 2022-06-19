@@ -1,14 +1,14 @@
 type CommonBtnProps = {
-  wide: Number;
-  long: Number;
-  txtColor: String;
-  backgroundColor: String;
+  wide?: number;
+  long?: number;
+  txtColor?: String;
+  backgroundColor?: String;
   // TODO: fix child
-  children: Number;
-  borderColor: String;
-  hovertxtColor: String;
-  hoverBackgroundColor: String;
-  fontSize: Number;
+  children: any;
+  borderColor?: String;
+  hovertxtColor?: String;
+  hoverBackgroundColor?: String;
+  fontSize?: number;
 };
 
 const CommonBtn = ({

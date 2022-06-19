@@ -4,13 +4,15 @@ import CommonBtn from "./CommonBtn";
 import CloseButton from "./CloseButton";
 import ProductSmall from "./ProductSmall";
 import { useAppSelector } from "../hooks/reduxHooks";
+import { Product } from "../interfaces/Product.interface";
+import { Cart } from "../types";
 
 type CartSideBarProps = {
   setShow: React.Dispatch<React.SetStateAction<boolean>>;
 };
 const CartSideBar = ({ setShow }: CartSideBarProps) => {
   const items = useAppSelector((state) => state.cart.cart);
-  const cartItems = items![0];
+  // const cartItems = items![0];
   return (
     <div className={styles.container}>
       <div className={styles.overlay}></div>
@@ -23,7 +25,8 @@ const CartSideBar = ({ setShow }: CartSideBarProps) => {
         </header>
         <div className={styles.main}>
           {!(items!.length === 0) ? (
-            <InhabitedCart cartItems={cartItems} />
+            // <InhabitedCart cartItems={cartItems} />
+            <InhabitedCart cartItems={items!} />
           ) : (
             <EmptyCart />
           )}
@@ -59,19 +62,23 @@ const EmptyCart = () => (
   </div>
 );
 
-const InhabitedCart = ({ cartItems }) => (
+type InhabitedCartProps = {
+  cartItems: Cart;
+};
+const InhabitedCart = ({ cartItems }: InhabitedCartProps) => (
   <div className={styles.inhabited}>
     <div className={styles.Subtotal}>
       <p className="subtotalTitle">Subtotal:</p>
       <p className={styles.subtotalPrice}>UGX138,000</p>
     </div>
     <div className={styles.products}>
-      {cartItems.map((item) => (
+      {cartItems.map((item: Product) => (
         <ProductSmall
           small="425"
           name={item.name}
           price={item.price}
           key={item.id}
+          id={item.id}
           img={item.img}
         />
       ))}
@@ -81,7 +88,7 @@ const InhabitedCart = ({ cartItems }) => (
     <div className={styles.space}></div>
     <div className={styles.space}></div>
     <div className={styles.inhabitedbtns}>
-      <CommonBtn wide="10">
+      <CommonBtn wide={10}>
         <Link href="/cart" passHref>
           View Cart
         </Link>
