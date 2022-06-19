@@ -120,7 +120,11 @@ const ByColor = () => {
     </div>
   );
 };
-const ColorCircle = (props) => (
+
+type ColorCircleProps = {
+  color: string;
+};
+const ColorCircle = (props: ColorCircleProps) => (
   <div className="colorCircle">
     <style jsx>{`
       .colorCircle {
@@ -188,7 +192,11 @@ const BySize = () => {
     </div>
   );
 };
-const SizeBtn = (props) => (
+
+type SizeBtnProps = {
+  children: any;
+};
+const SizeBtn = (props: SizeBtnProps) => (
   <button className="button">
     {props.children}
     <style jsx>{`
