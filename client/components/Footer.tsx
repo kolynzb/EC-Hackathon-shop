@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../styles/components/Footer.module.css";
 import Image from "next/image";
 import Socialsbar from "./Socialsbar";
-import logo from "../public/Images/logo.png";
+import logo from "../assets/Images/logo.png";
 const Footer = () => {
   return (
     <footer className={styles.footer}>

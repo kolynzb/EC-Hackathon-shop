@@ -24,7 +24,7 @@ const CartSideBar = ({ setShow }: CartSideBarProps) => {
           </div>
         </header>
         <div className={styles.main}>
-          {!(items!.length === 0) ? (
+          {items ? (
             // <InhabitedCart cartItems={cartItems} />
             <InhabitedCart cartItems={items!} />
           ) : (

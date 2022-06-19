@@ -5,6 +5,7 @@ import styles from "../styles/components/Nav.module.css";
 import { useRouter } from "next/router";
 import { logOut } from "../store/slices/userSlice";
 import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
+import { Cart } from "../types";
 
 type NavbarProps = {
   showCartSide: React.Dispatch<React.SetStateAction<boolean>>;
@@ -101,8 +102,8 @@ const Navbar = (props: NavbarProps) => {
           </svg>
         </div>
         <div className={styles.ham} onClick={() => props.showCartSide(true)}>
-          {cartItem!.length > 0 && (
-            <div className={styles.badge}>{cartItem!.length} </div>
+          {cartItem && (
+            <div className={styles.badge}>{(cartItem as Cart).length} </div>
           )}
           <svg
             stroke="currentColor"

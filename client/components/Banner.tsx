@@ -3,10 +3,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay, A11y } from "swiper";
 import "swiper/css/bundle";
 import Image from "next/image";
-import hero from "../public/Images/hero.png";
+import hero from "../assets/Images/hero.png";
 import bannerO from "../assets/Images/banner1.JPG";
-import bannerT from "../public/Images/banner2.jpg";
-import bannerTH from "../public/Images/banner3.jpg";
+import bannerT from "../assets/Images/banner2.jpg";
+import bannerTH from "../assets/Images/banner3.jpg";
 import bannerF from "../assets/Images/banner4.JPG";
 const Banner = () => {
   return (

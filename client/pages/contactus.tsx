@@ -1,6 +1,6 @@
 import styles from "../styles/ContactUs.module.css";
 import Image from "next/image";
-import hero from "../public/Images/contactus.jpg";
+import hero from "../assets/Images/contactus.jpg";
 import CommonBtn from "../components/CommonBtn";
 import Socialsbar from "../components/Socialsbar";
 import { NextPage } from "next";
