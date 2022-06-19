@@ -1,7 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Product } from "../interfaces/Product.interface";
 
-const ProductCard = (props) => {
+interface ProductCardProps extends Product {}
+
+const ProductCard = (props: ProductCardProps) => {
   return (
     <div className="productCard">
       <div className="card">

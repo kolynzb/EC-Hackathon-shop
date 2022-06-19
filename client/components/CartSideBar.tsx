@@ -58,6 +58,7 @@ const EmptyCart = () => (
     <button className={styles.contdShopping}>Continue Shopping</button>
   </div>
 );
+
 const InhabitedCart = ({ cartItems }) => (
   <div className={styles.inhabited}>
     <div className={styles.Subtotal}>
