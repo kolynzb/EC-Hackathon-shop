@@ -11,6 +11,7 @@ const Products = () => {
           price={product.price}
           key={product.id}
           id={product.id}
+          
         />
       ))}
       <style jsx>{`

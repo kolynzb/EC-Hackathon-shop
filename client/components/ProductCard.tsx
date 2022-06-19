@@ -2,7 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { Product } from "../interfaces/Product.interface";
 
-interface ProductCardProps extends Product {}
+interface ProductCardProps {
+  img: Product["img"];
+  name: Product["name"];
+  price: Product["price"];
+  id: Product["id"];
+}
 
 const ProductCard = (props: ProductCardProps) => {
   return (
