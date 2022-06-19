@@ -3,18 +3,21 @@ import styles from "../styles/components/CartSideBar.module.css";
 import CommonBtn from "./CommonBtn";
 import CloseButton from "./CloseButton";
 import ProductSmall from "./ProductSmall";
-import { useSelector } from "react-redux";
-const CartSideBar = (props) => {
-  const items = useSelector((state) => state.cart.cart);
-  const cartItems = items[0];
-  console.log(cartItems);
+import { useAppSelector } from "../hooks/reduxHooks";
+
+type CartSideBarProps = {
+  setShow: () => {};
+};
+const CartSideBar = ({ setShow }: CartSideBarProps) => {
+  const items = useAppSelector((state) => state.cart.cart);
+  const cartItems = items![0];
   return (
     <div className={styles.container}>
       <div className={styles.overlay}></div>
       <div className={styles.cartSidebar}>
         <header className={styles.cartHeader}>
           <h1 className={styles.headerTitle}>Cart</h1>
-          <div onClick={() => props.setShow(false)}>
+          <div onClick={() => setShow(false)}>
             <CloseButton />
           </div>
         </header>

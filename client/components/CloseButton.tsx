@@ -1,4 +1,9 @@
-const CloseButton = ({ size, bgColor, borderColor }) => {
+type CloseButtonProps = {
+  size?: number;
+  bgColor?: String;
+  borderColor?: String;
+};
+const CloseButton = ({ size, bgColor, borderColor }: CloseButtonProps) => {
   return (
     <button className="button">
       <div className="bar"></div>
@@ -6,10 +11,8 @@ const CloseButton = ({ size, bgColor, borderColor }) => {
       <style jsx>{`
         .button {
           position: relative;
-          /* width: ${size || 50}px;
-          height: ${size || 50}px; */
-          width: 50px;
-          height: 50px;
+          width: ${size || 50}px;
+          height: ${size || 50}px;
           border-radius: 50%;
           background-color: ${bgColor || "#f0eeee"};
           border: ${borderColor ? `solid 1px ${borderColor} ` : "none"};
