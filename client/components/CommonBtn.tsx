@@ -1,3 +1,15 @@
+type CommonBtnProps = {
+  wide: Number;
+  long: Number;
+  txtColor: String;
+  backgroundColor: String;
+  children: Number;
+  borderColor: String;
+  hovertxtColor: String;
+  hoverBackgroundColor: String;
+  fontSize: Number;
+};
+
 const CommonBtn = ({
   wide,
   long,
@@ -8,10 +20,10 @@ const CommonBtn = ({
   hovertxtColor,
   hoverBackgroundColor,
   fontSize,
-}) => {
+}: CommonBtnProps) => {
   return (
     <button>
-      {children}
+      <>{children}</>
       <style jsx>{`
         button {
           color: ${txtColor ? txtColor : "#2d2d2d"};
