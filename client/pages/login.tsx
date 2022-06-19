@@ -19,14 +19,16 @@ export default login;
 const _LoginSect = () => {
   const [userr, setUserr] = useState({});
   const dispatch = useDispatch();
-  const handleLogin = (e) => {
+  const handleLogin: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     dispatch(llogin(userr));
   };
-  const handleChange = (e) => {
+  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setUserr({ ...userr, email: e.target.value });
   };
-  const handleChangePassword = (e) => {
+  const handleChangePassword: React.ChangeEventHandler<HTMLInputElement> = (
+    e
+  ) => {
     setUserr({ ...userr, password: e.target.value });
   };
   return (
@@ -34,8 +36,7 @@ const _LoginSect = () => {
       <h1 className={styles.sectionTitle}>Login</h1>
       <Inputt onChange={handleChange}>Username or email address*</Inputt>
       <div className={styles.space}></div>
-
-      <Inputt onChange={handleChangePassword} type="password">
+      <Inputt onChange={handleChangePassword} typeAttr="password">
         Password*
       </Inputt>
       <div className={styles.space}></div>
@@ -50,8 +51,8 @@ const _LoginSect = () => {
         <CommonBtn
           backgroundColor="#282828"
           txtColor="white"
-          long="130"
-          wide="8"
+          long={130}
+          wide={8}
         >
           Login
         </CommonBtn>
@@ -62,7 +63,7 @@ const _LoginSect = () => {
 const _Register = () => (
   <form className={styles.register}>
     <h1 className={styles.sectionTitle}>Register</h1>
-    <Inputt type="email">Email Address*</Inputt>
+    <Inputt typeAttr="email">Email Address*</Inputt>
     <div className={styles.textSect}>
       <p className={styles.text}>
         A password will be sent to your email address.
@@ -77,16 +78,22 @@ const _Register = () => (
         described in our privacy policy.
       </p>
     </div>
-    <CommonBtn backgroundColor="#282828" txtColor="white" long="110" wide="10">
+    <CommonBtn backgroundColor="#282828" txtColor="white" long={110} wide={10}>
       Register
     </CommonBtn>
   </form>
 );
-const Inputt = (props) => {
+
+type InputtProps = {
+  typeAttr?: React.HTMLInputTypeAttribute;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  children: any;
+};
+const Inputt = (props: InputtProps) => {
   return (
     <div className="form">
-      <input onChange={props.onChange} type={props.type} required />
-      <label htmlFor={props.type} className="label-name">
+      <input onChange={props.onChange} type={props.typeAttr} required />
+      <label htmlFor={props.typeAttr} className="label-name">
         <span className="content-name">{props.children}</span>
       </label>
       <style jsx>{`

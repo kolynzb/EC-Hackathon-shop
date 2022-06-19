@@ -4,7 +4,8 @@ import hero from "../public/Images/contactus.jpg";
 import CommonBtn from "../components/CommonBtn";
 import Socialsbar from "../components/Socialsbar";
 import { NextPage } from "next";
-const contactus: NextPage  = () => {
+import { HTMLInputTypeAttribute } from "react";
+const contactus: NextPage = () => {
   return (
     <div>
       <ContactUsBanner />
@@ -109,18 +110,18 @@ const ContactUsBanner = () => (
 
 const ContactForm = () => (
   <form action="" className={styles.contactForm}>
-    <Inputt type="name">Name*</Inputt>
+    <Inputt typeAtrr="name">Name*</Inputt>
     <div className={styles.space}></div>
-    <Inputt type="tel">Phone Number*</Inputt>
+    <Inputt typeAtrr="tel">Phone Number*</Inputt>
     <div className={styles.space}></div>
-    <Inputt type="email">Email Address*</Inputt>
+    <Inputt typeAtrr="email">Email Address*</Inputt>
     <div className={styles.space}></div>
     <textarea
       name="message"
       id=""
       className={styles.textarea}
-      cols="30"
-      rows="10"
+      cols={30}
+      rows={10}
       placeholder="Message"
     ></textarea>
     <div className={styles.space}></div>
@@ -128,18 +129,22 @@ const ContactForm = () => (
       txtColor="white"
       backgroundColor="black"
       hoverBackgroundColor="white"
-      wide="6"
-      fontSize="20"
+      wide={6}
+      fontSize={20}
     >
       Send Message
     </CommonBtn>
   </form>
 );
-const Inputt = (props) => {
+type InputtProps = {
+  typeAtrr: HTMLInputTypeAttribute | undefined;
+  children: any;
+};
+const Inputt = (props: InputtProps) => {
   return (
     <div className="form">
-      <input type={props.type} required />
-      <label htmlFor={props.type} className="label-name">
+      <input type={props.typeAtrr} required />
+      <label htmlFor={props.typeAtrr} className="label-name">
         <span className="content-name">{props.children}</span>
       </label>
       <style jsx>{`
