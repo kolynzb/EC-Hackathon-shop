@@ -49,6 +49,9 @@ const userSchema = new mongoose.Schema(
     passwordChangedAt: Date,
     passwordResetTokenExpiresIn: Date,
     passwordResetToken: Number,
+    token: {
+      type: String,
+    },
     role: {
       type: String,
       enum: ['admin', 'user'],

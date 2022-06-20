@@ -1,6 +1,7 @@
 const Routes = {
-  Login: { path: "/" },
-  Dashboard: { path: "/dashboard" },
+  Login: { path: "/login" },
+  ForgotPassword: { path: "/forgot-password" },
+  Dashboard: { path: "/" },
 };
 
 export default Routes;
